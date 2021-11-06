@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zpy Online IDE</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/lib/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/fold/foldgutter.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/hint/show-hint.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/lint/lint.css"
+    />
+
+    <link rel="stylesheet" href="./assets/css/solarized.css" />
+    <link rel="stylesheet" href="./assets/css/clear.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/lib/codemirror.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/selection/active-line.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/comment/comment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/hint/show-hint.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/mode/simple.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/mode/python/python.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/fold/foldcode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/fold/foldgutter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/fold/brace-fold.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/fold/indent-fold.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/fold/comment-fold.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/edit/closebrackets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.63.3/addon/edit/matchbrackets.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="./assets/mode/zpy-mode.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="sidebar item">
+        <div class="header sidebar-header">
+          <p class="title">Zpy IDE</p>
+        </div>
+        <div class="dictionary" id="chapter">
+          <!-- <div class="chapter">
+            <div class="chapter-title" status="open" onclick="chapter.pull(event)">
+              <img class="icon" id="run" src="./assets/img/pullup.svg" />
+              <p class="chapter-title-text">例子</p>
+            </div>
+            <ul id="example" class="chapter-list">
+              <li class="chapter-item">简单排序算法</li>
+              <li class="chapter-item">简单排序算法</li>
+              <li class="chapter-item">简单排序算法</li>
+              <li class="chapter-item">简单排序算法</li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="code-container">
+          <div class="editor item" id="zpy-editor">
+            <div class="header">
+              <p class="title editor-title">zpy编辑区</p>
+              <div class="toolbar">
+                <div class="tool" type="button" title="运行" onClick="ide.zpyRun()">
+                  <img class="icon" id="run" src="./assets/img/run.svg" />
+                </div>
+                <div class="tool" type="button" title="编译" onClick="ide.zpyCompile()">
+                  <img class="icon" id="compile" src="./assets/img/compile.svg" />
+                </div>
+              </div>
+            </div>
+            <textarea id="zpy-code"></textarea>
+          </div>
+          <div class="editor item" id="python-editor">
+            <div class="header">
+              <p class="title editor-title">python编辑区</p>
+              <div class="toolbar">
+                <div class="tool" type="button" title="运行" onClick="ide.pyRun()">
+                  <img class="icon" id="run" src="./assets/img/run.svg" />
+                </div>
+                <div class="tool" type="button" title="编译" onClick="ide.pyCompile()">
+                  <img class="icon" id="compile" src="./assets/img/compile.svg" />
+                </div>
+              </div>
+            </div>
+            <textarea id="python-code"></textarea>
+          </div>
+        </div>
+        <div class="output-container item">
+          <pre id="output-code" readOnly></pre>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/source.js"></script>
+    <script src="./assets/js/utils.js"></script>
+    <script src="./assets/js/chapter.js"></script>
+    <script src="./assets/js/editor.js"></script>
+    <script src="./assets/js/keywords.js"></script>
+    <script src="./assets/js/zpy.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>

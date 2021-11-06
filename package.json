@@ -1,0 +1,19 @@
+{
+  "name": "zpy-ide",
+  "version": "1.0.0",
+  "description": "Online IDE for zpy-script",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server src --entry-file=index.html"
+  },
+  "keywords": [
+    "zpy",
+    "zpy-script",
+    "python3"
+  ],
+  "author": "louisyoungx",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}

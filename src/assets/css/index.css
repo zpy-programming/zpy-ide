@@ -1,0 +1,184 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.header {
+  background-color: rgba(245, 245, 245);
+  font-size: 3vh;
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 10vh;
+  margin-right: 2vh;
+}
+
+.tool {
+  width: 3vh;
+  height: 3vh;
+  cursor: pointer;
+  margin: 0;
+}
+
+.icon {
+  height: 3vh;
+  width: 3vh;
+}
+
+.item {
+  border: 1px solid rgba(0, 0, 0, 0.151);
+}
+
+#python-editor {
+  margin-left: 1vh;
+}
+
+.sidebar {
+  max-width: 250px;
+  width: 20vw;
+  height: 100vh;
+}
+
+.sidebar-header {
+  color: rgb(120, 120, 120);
+  border-bottom: 2px solid rgba(220, 220, 220);
+}
+
+.chapter {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.chapter-title {
+  margin: 2vh 1vh 2vh 2vh;
+  padding: 0.5vh;
+  font-size: 17px;
+  color: rgb(120, 120, 120);
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  border-radius: 5px;
+  background-color: rgba(245, 245, 245);
+  cursor: pointer;
+}
+
+.chapter-title-text {
+  margin-left: 1vh;
+}
+
+.chapter-list {
+  margin: 0 0 3vh 3vh;
+  font-size: 14px;
+}
+
+.chapter-item {
+  margin: 1vh 0;
+  cursor: pointer;
+}
+
+.title {
+  margin-left: 5vh;
+}
+
+.editor-title {
+  font-size: 2.5vh;
+  width: 20vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-left: 1vh;
+}
+
+.code-container {
+  height: 69vh;
+  width: 80vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.code {
+  height: 69vh;
+}
+
+.editor {
+  width: 48vw;
+  font-size: 13px;
+}
+
+.output-container {
+  margin-top: 1vh;
+  width: 80vw;
+  height: 29vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#output-code {
+  resize: none;
+  width: 93%;
+  height: 80%;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  background-color: rgba(245, 245, 245);
+  white-space: pre-wrap;
+  padding: 2vh;
+}
+
+/* 在 screen 类型 大于500px 小于740px 加载  */
+@media screen and (min-width: 500px) and (max-width: 740px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    width: 100%;
+  }
+
+  .code-container {
+    width: 100%;
+  }
+
+  .output-container {
+    width: 100%;
+  }
+}
+
+/* 在 screen 类型 小于 500px 加载 */
+@media screen and (max-width: 500px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    width: 100%;
+  }
+
+  .code-container {
+    width: 100%;
+  }
+
+  .editor {
+    width: 100%;
+  }
+
+  .output-container {
+    width: 100%;
+  }
+
+  #python-editor {
+    display: none;
+  }
+}
