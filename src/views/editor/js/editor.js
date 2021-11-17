@@ -36,3 +36,5 @@ let pyEditor = CodeMirror.fromTextArea(document.getElementById("python-code"), {
 
 zpyEditor.setSize(null, "63vh");
 pyEditor.setSize(null, "63vh");
+
+export {zpyEditor, pyEditor}

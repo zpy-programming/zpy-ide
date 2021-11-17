@@ -123,3 +123,7 @@ class Source {
     }
 }
 
+let source = new Source()
+
+export {source}
+

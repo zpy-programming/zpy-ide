@@ -1,4 +1,4 @@
-reservedWords = {
+const reservedWords = {
     "函数": "def",
     "删除": "del",
     "跳过": "pass",
@@ -17,7 +17,6 @@ reservedWords = {
     "否则": "else",
     "当": "while",
     "对于": "for",
-    "在": "in",
     "尝试": "try",
     "捕获": "except",
     "最后": "finally",
@@ -37,7 +36,7 @@ reservedWords = {
     "等待": "await"
 }
 
-functionWords = {
+const functionWords = {
     "符": "chr",
     "二进制": "bin",
     "串": "str",
@@ -84,7 +83,6 @@ functionWords = {
     "打印": "print",
     "打开": "open",
     "执行": "exec",
-    "排序": "sorted",
     "编译": "compile",
     "反转": "reversed",
     "映射": "map",
@@ -109,3 +107,5 @@ functionWords = {
     "id": "id",
     "dir": "dir"
 }
+
+export {reservedWords, functionWords}

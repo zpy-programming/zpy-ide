@@ -1,40 +1,7 @@
-class ZpyCompile {
-    constructor() {
-        this.keywords = {}
-        console.log(arguments)
-        for (let key of arguments) {
-            this.keywords = { ...this.keywords, ...key }
-        }
-        debug(this.keywords)
-    }
-    compile(code, type = "zpy") {
-        function dispose(key) {
-            return new RegExp(key, 'g')
-        }
-
-        if (type !== "zpy" && type !== "py") {
-            throw new Error("Compile code should be one of zpy, py")
-        }
-
-        for (let key in this.keywords) {
-            if (type === "zpy") code = code.replace(dispose(key), this.keywords[key])
-            else if (type === "py") code = code.replace(dispose(this.keywords[key]), key)
-        }
-
-        return code
-    }
-    async exec(code) {
-        const url = URL
-        return axios({
-            method: 'post',
-            url: url,
-            data: {
-                'code': code,
-            },
-        })
-
-    }
-}
+import {ZpyCompile} from "./zpy"
+import {reservedWords, functionWords} from "./keywords"
+import {zpyEditor, pyEditor} from "./editor"
+import {source} from "./source";
 
 class IDE {
     constructor({zpyCode, pyCode}) {
@@ -86,3 +53,8 @@ class IDE {
         zpyEditor.setOption("value", this.zpyCode)
     }
 }
+
+let zpyCode = source.example().codes[0]['source']
+let ide = new IDE({zpyCode})
+
+export {IDE, ide}
