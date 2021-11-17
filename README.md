@@ -43,3 +43,26 @@ python3 app.py
 ### 4.打开IDE
 
 使用浏览器访问 http://0.0.0.0:5000/
+
+## 三、修改前端工程文件
+
+src/  目录下为工程文件
+dist/ 目录下为webpack打包文件
+
+### 1.启动项目
+
+```shell
+npm install      # 1.安装依赖
+npm run start    # 2.启动webpack
+```
+
+### 2.重新编译输出到dist/目录
+```shell
+npm run build
+```
+
+## 四、修改后端工程文件
+
+```shell
+vim app.py
+```
