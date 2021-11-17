@@ -1,0 +1,19 @@
+"use strict";
+(self["webpackChunkzpy_ide"] = self["webpackChunkzpy_ide"] || []).push([["icon"],{
+
+/***/ 559:
+/*!****************************!*\
+  !*** ./public/favicon.png ***!
+  \****************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "img/9d9dd6a2013d5c384dac.png";
+
+/***/ })
+
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__(559));
+/******/ }
+]);
