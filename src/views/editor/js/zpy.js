@@ -1,31 +1,34 @@
 import {log} from "../../../utils/log";
 import {config} from "../../../utils/config";
+import {keywords} from "./keywords";
 
 export class ZpyCompile {
-    constructor() {
-        this.keywords = {}
-        log.info(arguments)
-        for (let key of arguments) {
-            this.keywords = { ...this.keywords, ...key }
-        }
+    constructor(keywords) {
+        this.keywords = keywords
         log.info(this.keywords)
     }
+
     compile(code, type = "zpy") {
-        function dispose(key) {
-            return new RegExp(key, 'g')
+
+        function dispose(key, regexp) {
+            log.info(eval(eval(regexp)))
+            return eval(eval(regexp))
         }
 
         if (type !== "zpy" && type !== "py") {
             throw new Error("Compile code should be one of zpy, py")
         }
 
-        for (let key in this.keywords) {
-            if (type === "zpy") code = code.replace(dispose(key), this.keywords[key])
-            else if (type === "py") code = code.replace(dispose(this.keywords[key]), key)
+        for (let keyword of keywords) {
+            for (let word in keyword.words) {
+                if (type === "zpy") code = code.replace(dispose(word, keyword.regexp), keyword.words[word])
+                else if (type === "py") code = code.replace(dispose(keyword.words[word], keyword.regexp), word)
+            }
         }
 
         return code
     }
+
     async exec(code) {
         return axios({
             method: 'post',

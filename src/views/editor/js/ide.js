@@ -1,5 +1,5 @@
 import {ZpyCompile} from "./zpy"
-import {reservedWords, functionWords} from "./keywords"
+import {keywords} from "./keywords"
 import {zpyEditor, pyEditor} from "./editor"
 import {source} from "./source";
 
@@ -7,7 +7,7 @@ class IDE {
     constructor({zpyCode, pyCode}) {
         this.zpyCode = zpyCode
         this.pyCode = pyCode
-        this.zpy = new ZpyCompile(reservedWords, functionWords)
+        this.zpy = new ZpyCompile(keywords)
         if (pyCode) {
             pyEditor.setOption("value", this.pyCode)
             this.pyCompile()
