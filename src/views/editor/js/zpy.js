@@ -11,8 +11,9 @@ export class ZpyCompile {
     compile(code, type = "zpy") {
 
         function dispose(key, regexp) {
-            log.info(eval(eval(regexp)))
-            return eval(eval(regexp))
+            let expression = String(eval(regexp))
+            log.info(expression)
+            return eval(expression)
         }
 
         if (type !== "zpy" && type !== "py") {
