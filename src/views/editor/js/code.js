@@ -1,6 +1,7 @@
 import {source} from "./source";
 import {IDE, ide} from "./ide"
 import pullUpSvg from "../img/pullup.svg"
+import {log} from "../../../utils/log";
 
 export class Code {
 
@@ -32,7 +33,11 @@ export class Code {
 
     inject(index) {
         let zpyCode = this.source(index)
-        ide = new IDE({ zpyCode })
+        try{
+            window.ide = new IDE({ zpyCode })
+        } catch (e) {
+            log.error(e)
+        }
     }
 
     source(index) {

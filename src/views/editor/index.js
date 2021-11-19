@@ -11,7 +11,7 @@ render.mount(view).then(() => {
     import("./js/zpy-mode")
     import("./js/code").then(({Code}) => {
         log.info(Code)
-        let code = new Code()
+        window.code = new Code()
     })
     import("./js/chapter").then(({chapter}) => {
         window.chapter = chapter
