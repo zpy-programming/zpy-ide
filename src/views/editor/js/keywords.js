@@ -1,6 +1,6 @@
 const reservedWords = {
-    regexp: "`/(?<=\\\\s)${key}(?=\\\\s)/gm`",
-    safariReg: "`/${key}(?=\\\\s)/gm`",
+    regexp: "`/(?<=\\\\s)${key}(?=[\\\\s:])/gm`",
+    safariReg: "`/${key}(?=[\\\\s:])/gm`",
     words: {
         "函数": "def",
         "删除": "del",
@@ -41,7 +41,7 @@ const reservedWords = {
 }
 
 const functionWords = {
-    regexp: "`/(?<=\\\\s)${key}(?=\\\\(.*\\\\))/gm`",
+    regexp: "`/(?<=[^\u4e00-\u9fa5\\\\w])${key}(?=\\\\(.*\\\\))/gm`",
     safariReg: "`/${key}(?=\\\\(.*\\\\))/gm`",
     words: {
         "符": "chr",
