@@ -29,7 +29,7 @@ class IDE {
         this.zpy.exec(this.pyCode).then(response => {
             this.output(response['data'])
         }).catch(err => {
-            this.output(`[网络错误] 无法连接服务器: ${config.URL}`)
+            this.output(`[网络错误] 无法连接服务器: ${config.HOST}`)
         })
     }
 
@@ -38,7 +38,7 @@ class IDE {
         this.zpy.exec(this.pyCode).then(response => {
             this.output(response['data'])
         }).catch(err => {
-            this.output(`[网络错误] 无法连接服务器: ${config.URL}`)
+            this.output(`[网络错误] 无法连接服务器: ${config.HOST}`)
         })
     }
 

@@ -11,6 +11,8 @@ app = Flask(__name__, instance_path=projectPath, template_folder='dist/', static
 
 app.config['JSON_AS_ASCII'] = False
 
+TIMEOUT = 1
+
 @app.route("/")
 def homePage():
     return render_template('index.html')
@@ -20,8 +22,12 @@ def zpy():
     if request.method == 'POST':
         code = request.json['code']
         # output = subprocess.check_output([sys.executable, '-c', code])
-        result = subprocess.run([sys.executable, '-c', code],shell=False,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,encoding="utf-8",timeout=1)
-        output = result.stdout
+        try:
+            result = subprocess.run([sys.executable, '-c', code],shell=False,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,encoding="utf-8",timeout=TIMEOUT)
+            output = result.stdout
+        except:
+            output = f"[运行错误] 运行时间超出限制: {TIMEOUT}s"
+
         response = make_response(output)
         response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET,POST'
