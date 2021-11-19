@@ -1,7 +1,8 @@
-import {ZpyCompile} from "./zpy"
+import {ZpyCompile} from "./zpy-compiler"
 import {keywords} from "./keywords"
 import {zpyEditor, pyEditor} from "./editor"
-import {source} from "./source";
+import {source} from "./source"
+import {config} from "../../../utils/config"
 
 class IDE {
     constructor({zpyCode, pyCode}) {
@@ -28,7 +29,7 @@ class IDE {
         this.zpy.exec(this.pyCode).then(response => {
             this.output(response['data'])
         }).catch(err => {
-            this.output("语法错误")
+            this.output(`[网络错误] 无法连接服务器: ${config.URL}`)
         })
     }
 
@@ -37,7 +38,7 @@ class IDE {
         this.zpy.exec(this.pyCode).then(response => {
             this.output(response['data'])
         }).catch(err => {
-            this.output("语法错误")
+            this.output(`[网络错误] 无法连接服务器: ${config.URL}`)
         })
     }
 
