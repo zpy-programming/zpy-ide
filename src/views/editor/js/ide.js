@@ -3,6 +3,7 @@ import {keywords} from "./keywords"
 import {zpyEditor, pyEditor} from "./editor"
 import {source} from "./source"
 import {config} from "../../../utils/config"
+import {time} from "../../../utils/time"
 
 class IDE {
     constructor({zpyCode, pyCode}) {
@@ -21,7 +22,8 @@ class IDE {
     }
 
     output(code) {
-        this.outputEditor.innerText = code
+        this.outputEditor.innerText += `[${time.getCurrentTime()}]:\n`
+        this.outputEditor.innerText += code + "\n\n"
     }
 
     zpyRun() {

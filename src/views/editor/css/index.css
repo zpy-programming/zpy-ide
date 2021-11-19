@@ -137,6 +137,7 @@
   background-color: rgba(245, 245, 245);
   white-space: pre-wrap;
   padding: 2vh;
+  overflow: auto;
 }
 
 /* 在 screen 类型 大于500px 小于740px 加载  */
