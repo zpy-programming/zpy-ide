@@ -57,7 +57,7 @@ class IDE {
     }
 }
 
-let zpyCode = source.example().codes[0]['source']
+let zpyCode = source[0].codes[0]['source']
 let ide = new IDE({zpyCode})
 
 export {IDE, ide}
